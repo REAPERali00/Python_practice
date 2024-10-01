@@ -1,4 +1,6 @@
 import unittest
+import io
+from unittest.mock import patch
 from todo_list import TaskInventory
 
 
@@ -41,7 +43,11 @@ class TestTodo(unittest.TestCase):
             )
 
     def test_view(self):
-        pass
+        self.todo_inventory.add_task("some task")
+        with patch("sys.stdout", new_callable=io.StringIO) as mock_output:
+            self.todo_inventory.view_tasks()
+            output = mock_output.getvalue()
+            self.assertEqual(output.strip(), "[ ] some task")
 
 
 if __name__ == "__main__":
