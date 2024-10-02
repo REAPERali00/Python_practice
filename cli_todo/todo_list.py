@@ -33,19 +33,20 @@ class TaskInventory:
         for task in self.taskList:
             print(task.get_printed_task())
 
-    def show_menu(self):
-        opts = ["view the tasks", "delete a task", "add a task"]
+    def show_menu(self) -> int:
+        opts = ["add a task", "delete a task", "view the tasks", "quit"]
         print("What do you want to do?")
         for i, opt in enumerate(opts):
             print(f"{i+1}. {opt}")
+        return len(opts)
 
     def validate_option(self, choice: int, start: int, end: int) -> bool:
         return choice >= start and choice <= end
 
     def menu(self) -> int:
-        self.show_menu()
+        end = self.show_menu()
         choice = int(input("Please choose: "))
-        if not self.validate_option(choice, 1, 3):
+        if not self.validate_option(choice, 1, end):
             print("choice was not valid, please choose again: ")
             self.menu()
         return choice
