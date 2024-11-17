@@ -1,13 +1,26 @@
-+------------------+
-|                  |
-|                  |
-|                  |
-|  DO you like it  |
-| so much that you |
-|  are willing to  |
-|   die for it?    |
-|                  |
-|                  |
-|                  |
-+------------------+
+Hi! Welcome to the German flashcard game! We will show you a card and you guess the corresponding answer!
+here is the german card: 
++----------------------------+
+|                            |
+|                            |
+|                            |
+|                            |
+|                            |
+|                            |
+|                            |
+|      Bist du fertig?       |
+|                            |
+|                            |
+|                            |
+|                            |
+|                            |
+|                            |
+|                            |
++----------------------------+
 
+Press enter when you are ready! Traceback (most recent call last):
+  File "/home/alireza/Documents/Python_practice/German/main.py", line 3, in <module>
+    Game().start()
+  File "/home/alireza/Documents/Python_practice/German/game.py", line 50, in start
+    input("Press enter when you are ready! ")
+KeyboardInterrupt

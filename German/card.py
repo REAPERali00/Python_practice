@@ -8,7 +8,7 @@ class Card:
         total_padding = self.card_length - 2 - len(line)
         left_padding = total_padding // 2
         right_padding = total_padding - left_padding
-        return f"|{' '* left_padding}{line}{' '* right_padding}|"
+        return f"  |{' '* left_padding}{line}{' '* right_padding}|"
 
     def convert_lines(self) -> list:
         words = self.msg.split()
@@ -25,8 +25,8 @@ class Card:
         return lines
 
     def print_card(self):
-        top_line = "+" + "-" * (self.card_length - 2) + "+\n"
-        empty_line = "|" + " " * (self.card_length - 2) + "|\n"
+        top_line = "  +" + "-" * (self.card_length - 2) + "+\n"
+        empty_line = "  |" + " " * (self.card_length - 2) + "|\n"
         content_lines = self.convert_lines()
 
         tot_empty_lines = self.card_height - len(content_lines)
