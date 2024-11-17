@@ -2,6 +2,7 @@ from card import Card
 import re
 import os
 import random
+import time
 
 
 class Question:
@@ -45,8 +46,9 @@ class Game:
         )
         self.Questions = self.read_gc_data("coffee_break.md")
         random.shuffle(self.Questions)
-
+        time.sleep(2)
         for question in self.Questions:
+            os.system("clear")
             print("here is the german card: ")
             question.german_card()
             input("Press enter when you are ready! ")
@@ -55,5 +57,8 @@ class Game:
             question.english_card()
 
             ans = input("did you get it right?[y/n] ").strip().lower()
-            self.score += 1 if ans == "y" else 0
+            self.score += 0 if ans == "n" else 1
+            if ans == "q":
+                return
+
         print(f"\nGame Over! Your final score is {self.score}/{len(self.Questions)}.")
