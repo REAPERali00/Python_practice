@@ -39,6 +39,24 @@ class Game:
         ]
         return questions
 
+    def ask_english(self, question: Question):
+        os.system("clear")
+        print("here is the german card: ")
+        question.german_card()
+        input("Press enter when you are ready! ")
+
+        print("here is the english card: ")
+        question.english_card()
+
+    def ask_german(self, question: Question):
+        os.system("clear")
+        print("here is the english card: ")
+        question.english_card()
+        input("Press enter when you are ready! ")
+
+        print("here is the german card: ")
+        question.german_card()
+
     def start(self):
         print(
             "Hi! Welcome to the German flashcard game! "
@@ -48,14 +66,8 @@ class Game:
         random.shuffle(self.Questions)
         time.sleep(2)
         for question in self.Questions:
-            os.system("clear")
-            print("here is the german card: ")
-            question.german_card()
-            input("Press enter when you are ready! ")
-
-            print("here is the english card: ")
-            question.english_card()
-
+            # self.ask_english(question)
+            self.ask_german(question)
             ans = input("did you get it right?[y/n] ").strip().lower()
             self.score += 0 if ans == "n" else 1
             if ans == "q":
